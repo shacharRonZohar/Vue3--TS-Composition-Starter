@@ -1,4 +1,10 @@
-export const utilService = {
+
+
+interface UtilService {
+  [key: string]: Function
+}
+
+export const utilService: UtilService = {
   makeId,
   makeExtId,
   getRandomInt,
@@ -8,7 +14,7 @@ export const utilService = {
   load: loadFromLocalStorage
 }
 
-function makeId (startSymb = '', length = 13) {
+function makeId(startSymb = '', length = 13) {
   let text = startSymb
   const possible = '0123456789'
   for (let i = 0; i < length; i++) {
@@ -17,7 +23,7 @@ function makeId (startSymb = '', length = 13) {
   return text
 }
 
-function makeExtId (length = 13) {
+function makeExtId(length = 13) {
   let text = ''
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
   for (let i = 0; i < length; i++) {
@@ -26,13 +32,13 @@ function makeExtId (length = 13) {
   return text
 }
 
-function getRandomInt (min: number, max: number) {
+function getRandomInt(min: number, max: number) {
   min = Math.ceil(min)
   max = Math.floor(max)
   return Math.floor(Math.random() * (max - min) + min)
 }
 
-function getRandomColor () {
+function getRandomColor() {
   const letters = '0123456789ABCDEF'
   let color = '#'
   for (let i = 0; i < 6; i++) {
@@ -41,16 +47,16 @@ function getRandomColor () {
   return color
 }
 
-function resetLocalStorage () {
+function resetLocalStorage() {
   localStorage.clear()
   sessionStorage.clear()
   window.location.reload()
 }
 
-function saveToLocalStorage (key: string, val: any) {
+function saveToLocalStorage(key: string, val: any) {
   localStorage.setItem(key, JSON.stringify(val))
 }
 
-function loadFromLocalStorage (key: string) {
+function loadFromLocalStorage(key: string) {
   return JSON.parse(localStorage.getItem(key) as string) || null
 }

@@ -1,7 +1,7 @@
-import { Entity } from '@/types/index'
+import { Entity, Service } from '@/types/index'
 import { utilService } from './util.service.js'
 
-export const storageService = {
+export const storageService: Service = {
   query,
   get,
   post,

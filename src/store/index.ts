@@ -6,9 +6,9 @@ import { RootState } from './types'
 // The persistedState plugin is good for debugging frontend without worrying about async while keeping the data on refresh
 // or for simple projects not in need of a backend, but for more complex projects, you can use the asyncLocalStorage for an easy switch
 // to backend calls.
-const plugins = [createPersistedState({ storage: window.sessionStorage })]
+// const plugins = [createPersistedState({ storage: window.sessionStorage })]
 const store: StoreOptions<RootState> = {
-  plugins,
+  // plugins,
   modules: {
     entityModule
   }
