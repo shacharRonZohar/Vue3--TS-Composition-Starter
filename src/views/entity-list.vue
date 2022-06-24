@@ -2,6 +2,7 @@
   This is an entity list
   <button @click="onAddEntity">add entity</button>
   <button @click="onUpdateEntity">update entity</button>
+  <button @click="onRemoveEntity('uLxCwTra2FwUw')">remove entity</button>
   <!-- <ul> -->
   <ul v-if="entities?.length">
     <entity-preview v-for="entity in entities" :key="entity._id" :entity="entity" />
@@ -31,7 +32,12 @@ export default defineComponent({
       console.log('update entity')
       dispatch({ type: 'updateState', commitType: 'saveEntity', data: { _id: 'gmVmZzIQcVcct', name: 'Luigi' } })
     }
-    return { entities, onAddEntity, onUpdateEntity }
+
+    const onRemoveEntity = (entityId: string) => {
+      console.log('remove entity')
+      dispatch({ type: 'updateState', commitType: 'removeEntity', data: entityId })
+    }
+    return { entities, onAddEntity, onUpdateEntity, onRemoveEntity }
   },
   methods: {
 

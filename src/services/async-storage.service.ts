@@ -53,6 +53,7 @@ async function remove(entityType: string, entityId: string) {
   const entities = await query(entityType)
   return new Promise((resolve, reject) => {
     const idx = entities.findIndex((entity: Entity) => entity._id === entityId)
+    console.log(idx, entities)
     if (idx === -1) reject(`Unkown Entity ${entityType} with Id: ${entityId}`)
     entities.splice(idx, 1)
     _save(entityType, entities)

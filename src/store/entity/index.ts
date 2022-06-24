@@ -29,11 +29,13 @@ export const entityModule: Module<EntityState, RootState> = {
       else entities.splice(entityIdx, 1, entity)
       state.entities = entities
     },
-    removeEntity(state, { entityId }) {
+    removeEntity(state, { data: entityId }) {
+      console.log(entityId)
       const entities = state.entities
       const entityIdx = entities.findIndex(({ _id }: Entity) => _id === entityId)
       if (entityIdx !== -1) entities.splice(entityIdx, 1)
       state.entities = entities
+      console.log(entities)
     }
   },
   actions: {
